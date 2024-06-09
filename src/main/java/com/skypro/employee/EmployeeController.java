@@ -42,7 +42,6 @@ public class EmployeeController {
     @GetMapping(path = "/remove")
     public Employee remove(@RequestParam("name") String name,
                            @RequestParam("surname") String surname) throws EmployeeNotFoundException {
-
         return EmployeeService.removeEmployee(name, surname);
 
     }
