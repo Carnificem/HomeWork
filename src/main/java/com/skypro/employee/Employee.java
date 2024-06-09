@@ -38,11 +38,11 @@ public class Employee {
        Employee employee = (Employee) o;
        return  Objects.equals(getName(),employee.getName())&&Objects.equals(getSurname(),employee.getSurname());
    }
+
     @Override
     public int hashCode() {
         return Objects.hash(getName(), getSurname());
     }
-
 
     @Override
     public String toString() {
