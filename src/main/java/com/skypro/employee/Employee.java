@@ -44,7 +44,6 @@ public class Employee {
         return Objects.hash(getName(), getSurname());
     }
 
-
     @Override
     public String toString() {
         return "<br>Имя сотрудника "+this.name+" "

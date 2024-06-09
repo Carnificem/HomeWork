@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 
 public class EmployeeNotFoundException extends Exception {
-
     public EmployeeNotFoundException(String massage) {
         super(massage);
     }
