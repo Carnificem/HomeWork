@@ -4,7 +4,6 @@ import exception.AlreadyAddedException;
 import exception.EmployeeNotFoundException;
 import exception.EmployeeStorageIsFullException;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,17 +63,5 @@ public class EmployeeService {
         return employeesList;
     }
 }
-
-
-// new Employee("Пушкин", "Александр", 1),
-// new Employee("Лермонтов ", "Михаил", 2),
-// new Employee("Бродский", "Иосиф", 3),
-// new Employee("Маяковский", "Владимир", 4),
-// new Employee("Тургенев", "Иван", 5),
-// new Employee("Булгаков", "Михаил", 6),
-// new Employee("Бехтерев", " Владимир", 7),
-// new Employee("Климов", "Григорий", 8),
-// new Employee("Есенин", "Сергей", 9),
-// new Employee("Михаил", "Салтыков-Щедрин", 10));
 
 
