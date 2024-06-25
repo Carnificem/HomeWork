@@ -4,33 +4,32 @@ import exception.AlreadyAddedException;
 import exception.EmployeeNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+
 @Service
 public class EmployeeServiceInterfaceImpl implements EmployeeServiceInterface {
-    private final List<Employee> employeeList;
+    private final Map<String,Employee> employees;
 
 
     public EmployeeServiceInterfaceImpl() {
-        this.employeeList = new ArrayList<>();
+        this.employees = new HashMap<>();
     }
 
     @Override
     public Employee add(String name, String surname) {
         Employee employee = new Employee(name,surname);
-        if (employeeList.contains(employee)){
+        if (employees.containsKey(employee.getAllName())){
             throw new AlreadyAddedException();
         }
-        employeeList.add(employee);
+        employees.put(employee.getAllName(),employee);
         return employee;
     }
 
     @Override
     public Employee remove(String name, String surname) {
         Employee employee = new Employee(name,surname);
-        if (employeeList.contains(employee)) {
-            employeeList.remove(employee);
+        if (employees.containsKey(employee.getAllName())) {
+            employees.remove(employee.getAllName());
             return employee;
         }
         throw new EmployeeNotFoundException();
@@ -40,14 +39,15 @@ public class EmployeeServiceInterfaceImpl implements EmployeeServiceInterface {
     public Employee search(String name, String surname){
     Employee employee = new Employee(name,surname);
 
-    if (employeeList.contains(employee)){
-        return employee;
+    if (employees.containsKey(employee.getAllName())){
+        return employees.get(employee.getAllName());
     }
         throw new EmployeeNotFoundException();
     }
 
-    public List<Employee> viewAll(){
-        return employeeList;
+    public Collection<Employee> viewAll(){
+
+        return Collections.unmodifiableCollection(employees.values());
     }
 
 
