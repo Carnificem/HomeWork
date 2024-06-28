@@ -16,8 +16,8 @@ public class EmployeeServiceInterfaceImpl implements EmployeeServiceInterface {
     }
 
     @Override
-    public Employee add(String name, String surname) {
-        Employee employee = new Employee(name,surname);
+    public Employee add(String name, String surname,int salary,int department) {
+        Employee employee = new Employee(name,surname,salary,department);
         if (employees.containsKey(employee.getAllName())){
             throw new AlreadyAddedException();
         }
@@ -26,8 +26,8 @@ public class EmployeeServiceInterfaceImpl implements EmployeeServiceInterface {
     }
 
     @Override
-    public Employee remove(String name, String surname) {
-        Employee employee = new Employee(name,surname);
+    public Employee remove(String name, String surname,int salary,int department) {
+        Employee employee = new Employee(name,surname,salary,department);
         if (employees.containsKey(employee.getAllName())) {
             employees.remove(employee.getAllName());
             return employee;
@@ -36,8 +36,9 @@ public class EmployeeServiceInterfaceImpl implements EmployeeServiceInterface {
     }
 
     @Override
-    public Employee search(String name, String surname){
-    Employee employee = new Employee(name,surname);
+    public Employee search(String name, String surname, int salary, int department){
+    Employee employee = new Employee(name,surname,salary,department);
+
 
     if (employees.containsKey(employee.getAllName())){
         return employees.get(employee.getAllName());

@@ -1,18 +1,37 @@
 package com.skypro.employee;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class Employee {
     String name;
     String surname;
+    int salary;
+    int department;
 
-    public Employee(String name, String surname) {
+    public Employee(String name, String surname,int salary,int department) {
         this.name = name;
         this.surname = surname;
+        this.salary = salary;
+        this.department = department;
     }
-     public String getAllName(){
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    public int getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(int department) {
+        this.department = department;
+    }
+
+    public String getAllName(){
         return name+" "+surname;
      }
 
