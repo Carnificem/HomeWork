@@ -1,64 +1,41 @@
 package com.skypro.employee;
 
-import exception.AlreadyAddedException;
-import exception.EmployeeNotFoundException;
-import exception.EmployeeStorageIsFullException;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 @RestController
+@RequestMapping("/employee")
 public class EmployeeController {
-    public final EmployeeService employeeService;
+    private final EmployeeServiceInterfaceImpl service;
 
-    public EmployeeController(EmployeeService employeeService) {
-        this.employeeService = employeeService;
+    public EmployeeController(EmployeeServiceInterfaceImpl service) {
+        this.service = service;
     }
 
-    public final int MAX_EMPLOYEES = 12;
-
-    List<Employee> employeesList = new ArrayList<>(List.of(
-            new Employee("Пушкин", "Александр"),
-            new Employee("Лермонтов ", "Михаил"),
-            new Employee("Бродский", "Иосиф"),
-            new Employee("Маяковский", "Владимир"),
-            new Employee("Тургенев", "Иван"),
-            new Employee("Булгаков", "Михаил"),
-            new Employee("Бехтерев", " Владимир"),
-            new Employee("Климов", "Григорий"),
-            new Employee("Есенин", "Сергей"),
-            new Employee("Михаил", "Салтыков-Щедрин")));
-
-
     @GetMapping(path = "/add")
-    public Employee add(@RequestParam("name") String name,
-                        @RequestParam("surname") String surname) throws AlreadyAddedException, EmployeeStorageIsFullException {
-        return EmployeeService.addEmployee(name, surname);
+    public Employee addEmployee(@RequestParam String name, @RequestParam String surname, @RequestParam int salary, @RequestParam int department) {
+        return service.add(name, surname, salary, department);
     }
 
     @GetMapping(path = "/remove")
-    public Employee remove(@RequestParam("name") String name,
-                           @RequestParam("surname") String surname) throws EmployeeNotFoundException {
-
-        return EmployeeService.removeEmployee(name, surname);
-
+    public Employee removeEmployee(@RequestParam String name, @RequestParam String surname, @RequestParam int salary, @RequestParam int department) {
+        return service.remove(name, surname, salary, department);
     }
 
     @GetMapping(path = "/search")
-    private Employee search(@RequestParam("name") String name,
-                            @RequestParam("surname") String surname) throws EmployeeNotFoundException {
-        return EmployeeService.searchEmployee(name, surname);
-
+    public Employee searchEmployee(@RequestParam String name, @RequestParam String surname, @RequestParam int salary, @RequestParam int department) {
+        return service.search(name, surname, salary, department);
     }
 
-    @GetMapping(path = "/all")
-    public String getEmployeesList() {
-        return EmployeeService.employeesList.toString();
+    @GetMapping
+    public Collection<Employee> viewAll() {
+        return service.viewAll();
     }
-
 
 }
+
 
