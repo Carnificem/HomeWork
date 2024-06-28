@@ -9,6 +9,7 @@ import java.util.Map;
 
 import static java.util.Comparator.comparingInt;
 import static java.util.stream.Collectors.groupingBy;
+
 @Service
 public class DepartmentService implements DepartmentServiceInterface {
     private final EmployeeServiceInterfaceImpl employeeService;
@@ -18,27 +19,27 @@ public class DepartmentService implements DepartmentServiceInterface {
     }
 
     @Override
-    public Employee findEmployeeWithMaxSalary(int department){
-        return employeeService.viewAll().stream().filter(employee -> employee.getDepartment()==department)
-                .max(Comparator.comparingInt(employee->employee.getSalary()))
+    public Employee findEmployeeWithMaxSalary(int department) {
+        return employeeService.viewAll().stream().filter(employee -> employee.getDepartment() == department)
+                .max(Comparator.comparingInt(employee -> employee.getSalary()))
                 .orElseThrow(EmployeeNotFoundException::new);
     }
 
     @Override
     public Employee findEmployeeWithMinSalary(int department) {
-        return employeeService.viewAll().stream().filter(employee -> employee.getDepartment()==department)
-                .min(Comparator.comparingInt(employee->employee.getSalary()))
+        return employeeService.viewAll().stream().filter(employee -> employee.getDepartment() == department)
+                .min(Comparator.comparingInt(employee -> employee.getSalary()))
                 .orElseThrow(EmployeeNotFoundException::new);
     }
 
     @Override
     public List<Employee> findEmployee(int department) {
-        return employeeService.viewAll().stream().filter(employee -> employee.getDepartment()==department).toList();
+        return employeeService.viewAll().stream().filter(employee -> employee.getDepartment() == department).toList();
     }
 
 
     public Map<Integer, List<Employee>> findEmployeeByDep() {
-        return employeeService.viewAll().stream().collect(groupingBy(employee->employee.getDepartment()));
+        return employeeService.viewAll().stream().collect(groupingBy(employee -> employee.getDepartment()));
     }
 
 

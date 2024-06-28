@@ -8,7 +8,7 @@ public class Employee {
     int salary;
     int department;
 
-    public Employee(String name, String surname,int salary,int department) {
+    public Employee(String name, String surname, int salary, int department) {
         this.name = name;
         this.surname = surname;
         this.salary = salary;
@@ -31,9 +31,9 @@ public class Employee {
         this.department = department;
     }
 
-    public String getAllName(){
-        return name+" "+surname;
-     }
+    public String getAllName() {
+        return name + " " + surname;
+    }
 
     public String getName() {
         return name;
