@@ -42,13 +42,11 @@ public class EmployeeServiceInterfaceImpl implements EmployeeServiceInterface {
         if (!employees.containsKey(name)) {
             throw new EmployeeNotFoundException();
         }
-
         return employees.get(name);
     }
 
 
     public Collection<Employee> viewAll() {
-
         return Collections.unmodifiableCollection(employees.values());
     }
 
