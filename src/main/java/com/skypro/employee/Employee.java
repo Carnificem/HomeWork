@@ -3,7 +3,7 @@ package com.skypro.employee;
 import java.util.Objects;
 
 public class Employee {
-   private String name;
+    private String name;
     private String surname;
     private int salary;
     private int department;
@@ -15,9 +15,9 @@ public class Employee {
         this.department = department;
     }
 
-   // public Employee(String name, String surname) {
-   //     this.name=name;
-   //     this.surname = name;
+    // public Employee(String name, String surname) {
+    //     this.name=name;
+    //     this.surname = name;
     //}
 
     public int getSalary() {

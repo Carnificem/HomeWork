@@ -17,12 +17,12 @@ public class DepartmentController {
         this.serviceDep = serviceDep;
     }
 
-    @GetMapping("max-salary")
+    @GetMapping("/max-salary")
     public Employee findEmployeeWithMaxSalary(@RequestParam int department) {
         return serviceDep.findEmployeeWithMaxSalary(department);
     }
 
-    @GetMapping("min-salary")
+    @GetMapping("/min-salary")
     public Employee findEmployeeWithMinSalary(@RequestParam int department) {
         return serviceDep.findEmployeeWithMinSalary(department);
     }

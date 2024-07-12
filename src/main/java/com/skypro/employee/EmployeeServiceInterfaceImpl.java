@@ -17,39 +17,34 @@ public class EmployeeServiceInterfaceImpl implements EmployeeServiceInterface {
 
     @Override
     public Employee add(String name, String surname, int salary, int department) {
-       // Employee employee = new Employee(name, surname, salary, department);
         if (employees.containsKey(name)) {
-            throw new AlreadyAddedException();}
-        else {
-            employees.put(name,new Employee(name,surname,salary,department));
+            throw new AlreadyAddedException();
+        } else {
+            employees.put(name, new Employee(name, surname, salary, department));
         }
-        //employees.put(name, employee);
+
         return employees.get(name);
     }
 
     @Override
     public Employee remove(String name, String surname) {
-        //Employee employee = employees.remove(name);
-       //Employee employee = new Employee(name, surname);
         if (employees.containsKey(name)) {
             employees.remove(name);
-        }else {
+        } else {
             throw new EmployeeNotFoundException();
         }
         return employees.get(name);
     }
 
 
-
-
     @Override
     public Employee search(String name, String surname) {
         if (!employees.containsKey(name)) {
-            //employees.get(name);
-            throw new EmployeeNotFoundException();}
+            throw new EmployeeNotFoundException();
+        }
 
         return employees.get(name);
-        }
+    }
 
 
     public Collection<Employee> viewAll() {

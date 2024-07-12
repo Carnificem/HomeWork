@@ -21,14 +21,14 @@ public class DepartmentService implements DepartmentServiceInterface {
     @Override
     public Employee findEmployeeWithMaxSalary(int department) {
         return employeeService.viewAll().stream().filter(employee -> employee.getDepartment() == department)
-                .max(Comparator.comparingInt(employee -> employee.getSalary()))
+                .max(Comparator.comparingInt(Employee::getSalary))
                 .orElseThrow(EmployeeNotFoundException::new);
     }
 
     @Override
     public Employee findEmployeeWithMinSalary(int department) {
         return employeeService.viewAll().stream().filter(employee -> employee.getDepartment() == department)
-                .min(Comparator.comparingInt(employee -> employee.getSalary()))
+                .min(Comparator.comparingInt(Employee::getSalary))
                 .orElseThrow(EmployeeNotFoundException::new);
     }
 

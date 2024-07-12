@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface DepartmentServiceInterface {
+
     Employee findEmployeeWithMaxSalary(int department);
 
     Employee findEmployeeWithMinSalary(int department);
