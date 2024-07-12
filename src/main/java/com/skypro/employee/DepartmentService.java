@@ -12,9 +12,9 @@ import static java.util.stream.Collectors.groupingBy;
 
 @Service
 public class DepartmentService implements DepartmentServiceInterface {
-    private final EmployeeServiceInterfaceImpl employeeService;
+    private final EmployeeServiceInterface employeeService;
 
-    public DepartmentService(EmployeeServiceInterfaceImpl employeeService) {
+    public DepartmentService(EmployeeServiceInterface employeeService) {
         this.employeeService = employeeService;
     }
 
@@ -39,7 +39,7 @@ public class DepartmentService implements DepartmentServiceInterface {
 
 
     public Map<Integer, List<Employee>> findEmployeeByDep() {
-        return employeeService.viewAll().stream().collect(groupingBy(employee -> employee.getDepartment()));
+        return employeeService.viewAll().stream().collect(groupingBy(Employee::getDepartment));
     }
 
 

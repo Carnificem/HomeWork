@@ -3,10 +3,10 @@ package com.skypro.employee;
 import java.util.Objects;
 
 public class Employee {
-    String name;
-    String surname;
-    int salary;
-    int department;
+   private String name;
+    private String surname;
+    private int salary;
+    private int department;
 
     public Employee(String name, String surname, int salary, int department) {
         this.name = name;
@@ -14,6 +14,11 @@ public class Employee {
         this.salary = salary;
         this.department = department;
     }
+
+   // public Employee(String name, String surname) {
+   //     this.name=name;
+   //     this.surname = name;
+    //}
 
     public int getSalary() {
         return salary;
@@ -29,10 +34,6 @@ public class Employee {
 
     public void setDepartment(int department) {
         this.department = department;
-    }
-
-    public String getAllName() {
-        return name + " " + surname;
     }
 
     public String getName() {
