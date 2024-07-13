@@ -29,11 +29,11 @@ public class EmployeeServiceInterfaceImpl implements EmployeeServiceInterface {
     @Override
     public Employee remove(String name, String surname) {
         if (employees.containsKey(name)) {
-            employees.remove(name);
+
+            return employees.remove(name);
         } else {
             throw new EmployeeNotFoundException();
         }
-        return employees.get(name);
     }
 
 

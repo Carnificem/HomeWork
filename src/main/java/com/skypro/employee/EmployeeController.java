@@ -10,9 +10,9 @@ import java.util.Collection;
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
-    private final EmployeeServiceInterfaceImpl service;
+    private final EmployeeServiceInterface service;
 
-    public EmployeeController(EmployeeServiceInterfaceImpl service) {
+    public EmployeeController(EmployeeServiceInterface service) {
         this.service = service;
     }
 
