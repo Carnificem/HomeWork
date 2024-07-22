@@ -9,8 +9,8 @@ public class Employee {
     private int department;
 
     public Employee(String name, String surname, int salary, int department) {
-        this.name = name;
-        this.surname = surname;
+        this.name = name.substring(0,1).toUpperCase()+name.substring(1).toLowerCase();
+        this.surname = surname.substring(0,1).toUpperCase()+surname.substring(1).toLowerCase();
         this.salary = salary;
         this.department = department;
     }
